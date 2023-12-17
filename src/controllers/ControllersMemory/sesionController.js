@@ -57,8 +57,8 @@ async function login(req, res) {
     });
   } catch (error) {
     console.error(`Error en el inicio de sesión: ${error.message}`);
-    
-    
+
+
     if (error.message === "secretOrPrivateKey must have a value") {
       return res.status(500).json({ success: false, error: "Error en el inicio de sesión: secretOrPrivateKey must have a value" });
     }
@@ -123,7 +123,6 @@ async function getProfile(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
-
 async function logout(req, res) {
   try {
     req.session.destroy((err) => {
@@ -137,5 +136,4 @@ async function logout(req, res) {
   }
 }
 
-
-export { logout, login, register,getProfile };
+export { logout, login, register, getProfile };
